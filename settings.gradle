@@ -1,1 +1,1 @@
-include ':app', ':netapi', ':mainpage', ':jlubase'
+include ':app', ':netapi', ':mainpage', ':jlubase', ':jlu_repo'

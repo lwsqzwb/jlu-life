@@ -6,28 +6,25 @@ import android.text.TextUtils;
 
 import com.jlulife.zhangwenbin.netapi.listener.IRequestListener;
 
-import okhttp3.FormBody;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 
 public class ApiRequest {
 
     private Request.Builder mRequestBuilder;
-    private FormBody.Builder mBodyBuilder;
 
     public ApiRequest(@NonNull String url){
         mRequestBuilder = new Request.Builder();
-        mBodyBuilder = new FormBody.Builder();
         mRequestBuilder.url(url);
     }
 
     public void enqueueRequest(IRequestListener requestListener){
-        mRequestBuilder.post(mBodyBuilder.build());
         ApiManager.getInstance().enqueueRequest(mRequestBuilder.build(),requestListener);
     }
 
-    public ApiRequest addParam(@Nullable String key, @Nullable String value){
-        if (!TextUtils.isEmpty(key) && !TextUtils.isEmpty(value)){
-            mBodyBuilder.add(key, value);
+    public ApiRequest setRequestBody(String requestBody){
+        if (!TextUtils.isEmpty(requestBody)){
+            mRequestBuilder.post(RequestBody.create(null,requestBody));
         }
         return this;
     }

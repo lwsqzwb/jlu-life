@@ -9,9 +9,14 @@ import com.jlulife.zhangwenbin.netapi.result.ResponseData;
 
 
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.Arrays;
+import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.Dns;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -22,7 +27,16 @@ public class ApiManager {
     private InnerHandler mInnerHandler;
 
     public ApiManager(){
-        mOkHttpClient = new OkHttpClient.Builder().build();
+        mOkHttpClient = new OkHttpClient.Builder()
+                .build();
+
+        //.dns(new Dns() {
+        //                    @NonNull
+        //                    @Override
+        //                    public List<InetAddress> lookup(@NonNull String hostname) throws UnknownHostException {
+        //                        return Arrays.asList(InetAddress.getAllByName("10.60.65.8"));
+        //                    }
+        //                })
         mInnerHandler = new InnerHandler();
     }
 

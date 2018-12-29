@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/jlu_repo" />
             <option value="$PROJECT_DIR$/jlubase" />
             <option value="$PROJECT_DIR$/mainpage" />
             <option value="$PROJECT_DIR$/netapi" />
